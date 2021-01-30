@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-black222{
+    background-color: #000b0f!important;
+  }
+
+  .color-me-whitesmoke{
+    color:whitesmoke;
+  }
+
+  .navbar-brand-whitesmoke {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color:rgb(231, 235, 255);
+  }
+
+.whiteMargin{
+  margin-bottom: 10px;
+  color: antiquewhite;
+}
+
+.whiteVerticalMargin{
+  margin-right: 10px;
+  color: antiquewhite;
+}
+.Container input{ /* You Can Name it what you want*/
+  margin-right:16px;
+}
+.Container input:last-child{
+  margin-right:0px;
+  /*so the last one dont push the div thas giving the space only between the inputs*/
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

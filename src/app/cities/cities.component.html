@@ -1,0 +1,76 @@
+<nav class="min-height navbar bg-Bfvds navbar-light bg-light justify-content-between bottomMargin2">
+    <a class="navbar-brand color-me-whitesmoke">FILMISTAN admin portal</a>
+    <div>
+        <button (click)="logoutOfApp();" class=" bg-Bfvds nav-item color-me-whitesmoke" type="button"
+            value="button text">Logout</button>
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col-xs-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Add City</label>
+                        <input type="email" class="form-control" [(ngModel)]="newCityName" name="newCityName"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter City">
+                        <small id="emailHelp" class="form-text text-muted">Enter the name of the city that you want to
+                            add.</small>
+                    </div>
+                    <button type="submit" (click)="addNewCity()"
+                        class="main-left-margin bottomMargin2 btn btn-success">Add</button>
+                </form>
+            </th>
+
+
+            <th scope="col-xs-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Edit City</label>
+                        
+                        <select class="form-control" id="sel1" [(ngModel)]="oldCityName" name="oldCityName">
+                            <option *ngFor="let city of citiesArray" [value]="city.id" >{{city.name}}</option>
+                        </select>
+                        <input type="email" class="form-control" [(ngModel)]="editCityName" name="editCityName"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter New City Name">
+                        <small id="emailHelp" class="form-text text-muted">Enter the name of the city that you want to
+                            edit.</small>
+                    </div>
+                    <button type="submit"  (click)="editNewCity()"
+                        class="main-left-margin bottomMargin2 btn btn-info">Edit</button>
+                </form>
+            </th>
+
+
+
+            <th scope="col-xs-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Delete City</label>
+                        <select class="form-control" id="sel1" [(ngModel)]="deleteCityName" name="deleteCityName">
+                            <option *ngFor="let city of citiesArray" [value]="city.id" >{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Enter the name of the city that you want to
+                            delete.</small>
+                    </div>
+                    <button type="submit" (click)="deleteCities()"
+                        class="main-left-margin bottomMargin2 btn btn-danger">Delete</button>
+                </form>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<h3 class = "main-left-margin bottomMargin2">Cities</h3>
+
+<div>
+    <ul class="container-fluid col-md-6 main-left-margin">
+        <li *ngFor="let city of citiesArray"
+            class="bottomMargin2 list-group-item justify-content-between align-items-center">
+            <div class="row col-md-2 textHiegth">
+                {{city.name}}
+            </div>
+        </li>
+    </ul>
+</div>

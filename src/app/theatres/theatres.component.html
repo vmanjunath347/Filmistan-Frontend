@@ -1,0 +1,95 @@
+<nav class="min-height navbar bg-Bfvds navbar-light bg-light justify-content-between bottomMargin2">
+    <a class="navbar-brand color-me-whitesmoke">FILMISTAN admin portal</a>
+    <div>
+        <button (click)="logoutOfApp();" class=" bg-Bfvds nav-item color-me-whitesmoke" type="button"
+            value="button text">Logout</button>
+    </div>
+</nav>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Add Theatre</label>
+                        <select class="form-control  col-sm-4" id="sel1" [(ngModel)]="cityName" name="cityName">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the city</small>
+                        <input type="email" class="form-control col-sm-4" [(ngModel)]="newtheatreName"  name="NewTheatreName" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Theatre Name">
+                        <small id="emailHelp" class="form-text text-muted">Enter the name of the theatre that you want
+                            to
+                            add.</small>
+                        <input type="email" class="form-control col-sm-4"  [(ngModel)]="newtheatreSeatCount" name="newtheatreSeatCount" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Number of seats">
+                        <small id="emailHelp" class="form-text text-muted">Enter the number of seats you want to
+                            add</small>
+                    </div>
+                    <button type="submit" (click)="addNewTheatre()" class="main-left-margin bottomMargin2 btn btn-success">Add</button>
+                </form>
+            </th>
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Edit Theatre</label>
+                        <select class="form-control col-sm-4" (change)="fillTheatresInCities()" id="sel1" [(ngModel)]="cityIdOfEditTheatre" name="cityIdOfEditTheatre">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the Theatre</small>
+                        <select class="form-control col-sm-4" id="sel1" [(ngModel)]="edittheatreId" name="edittheatreId">
+                            <option *ngFor="let theatre of theatresInCityArray" [value]="theatre.id">{{theatre.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted4">Select the city</small>
+                        <input type="email" class="form-control col-sm-4" [(ngModel)]="newtheatreName"  name="NewTheatreName" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Theatre Name">
+                        <small id="emailHelp" class="form-text text-muted">Enter the new name for the theatre.</small>
+                        <input type="email" class="form-control col-sm-4"  [(ngModel)]="newtheatreSeatCount" name="newtheatreSeatCount" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Number of seats">
+                        <small id="emailHelp" class="form-text text-muted">Enter New Seat Count</small>
+                    </div>
+                    <button type="submit" (click)="editTheatre()" class="main-left-margin bottomMargin2 btn btn-info">Edit</button>
+                </form>
+            </th>
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Delete Theatre</label>
+                        <select class="form-control col-sm-6" (change)="fillTheatresInCities()" id="sel1" [(ngModel)]="cityIdOfDeleteTheatre" name="cityIdOfDeleteTheatre">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the Theatre</small>
+                        <select class="form-control col-sm-6" id="sel1" [(ngModel)]="deletetheatreId" name="deletetheatreId">
+                            <option *ngFor="let theatre of theatresInCityArray" [value]="theatre.id">{{theatre.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted4">Select the city</small>
+                    </div>
+                    <button type="submit" (click)="deleteTheatre()" class="main-left-margin bottomMargin2 btn btn-danger">Delete</button>
+                </form>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+
+
+
+<h3 class = "main-left-margin bottomMargin2">Theatres</h3>
+
+<table class=" container-fluid main-left-margin table col-md-10">
+    <thead class = "thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Total Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let theatre of theatresArray">
+            <th scope="row">{{theatre.name}}</th>
+            <td>{{theatre.city}}</td>
+            <td>{{theatre.seatCount}}</td>
+        </tr>
+
+    </tbody>
+</table>

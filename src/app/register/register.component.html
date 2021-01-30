@@ -1,0 +1,52 @@
+<div class="container-fluid row loginwelcome">
+    <div class="loginwelcome col-xs-12 col-md-6 bg-black222">
+        <div class="logintext login-text-devision">
+            <h2>FILMISTHAN</h2>
+        </div>
+        <div class="logintext login-text-devision">
+            <h4>Register</h4>
+        </div>
+
+    </div>
+    <div class="loginwelcome col-xs-12 col-md-3">
+        <form>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="User Name">
+            </div>
+            <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="User Name">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="password" name="password"
+                    placeholder="Password">
+            </div>
+            <div class="Container">
+                <button type="submit" class="btn btn-secondary" (click)="register()" data-toggle="modal" data-target="#exampleModal">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            {{registerMessage}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click) = "resgisterAction()" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+.bg-Bfvds{background-color:#151718!important}
+
+.navbar-Whiteeeee .navbar-brand {
+    color: rgba(231, 231, 231, 0.9);
+  }
+
+  .nav-link2 {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .color-me-whitesmoke{
+    color:whitesmoke;
+  }
+
+  .to-rightAlign{
+      text-align: right;
+  }
+
+  .min-height{
+      height: 100px;
+  }
+
+  .bottomMargin2{
+    margin-bottom: 50px;
+    opacity:100%;
+  }
+
+  .topMargin2{
+    margin-top: 50px;
+    opacity:100%;
+  }

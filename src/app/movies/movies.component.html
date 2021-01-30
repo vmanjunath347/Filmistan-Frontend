@@ -1,0 +1,91 @@
+<nav class="min-height navbar bg-Bfvds navbar-light bg-light justify-content-between bottomMargin2">
+    <a class="navbar-brand color-me-whitesmoke">FILMISTAN admin portal</a>
+    <div>
+        <button (click)="logoutOfApp();" class=" bg-Bfvds nav-item color-me-whitesmoke" type="button"
+            value="button text">Logout</button>
+    </div>
+</nav>
+
+<table>
+    <thead>
+        <tr>
+
+            <th scope="col-xs-12 col-sm-12">
+
+                <form>
+
+                    <div class="form-group main-left-margin">
+                        <div class="form-group">
+                            <label>Add Movie</label>
+                            <small id="emailHelp" class="form-text text-muted">Enter the movie name</small>
+                            <input type="text" class="form-control" [(ngModel)]="addMovieName" name="addMovieName"
+                                placeholder="Movie Name">
+                        </div>
+
+                        <small id="emailHelp" class="form-text text-muted">Enter from date</small>
+                        <input matInput [(ngModel)]="startDate" (dateChange)="getAvailableTimings()" name="startDate"
+                            [matDatepicker]="myDatePicker1" [min]="minDate">
+                        <mat-datepicker-toggle [for]="myDatePicker1" matSuffix>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #myDatePicker1></mat-datepicker>
+
+                        <small id="emailHelp" class="form-text text-muted">Enter To date</small>
+                        <input matInput [(ngModel)]="endDate" (dateChange)="getAvailableTimings()" name="endDate"
+                            [matDatepicker]="myDatePicker" [min]="startDate">
+                        <mat-datepicker-toggle [for]="myDatePicker" matSuffix>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #myDatePicker></mat-datepicker>
+
+                        <small id="emailHelp" class="form-text text-muted">Select Cities</small>
+                        <ng-multiselect-dropdown [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                            [data]="citiesData" (onSelect)="onItemSelect()" (onDeSelect)="onItemSelect()"
+                            (onSelectAll)="onItemSelect()" name="selectedItems">
+                        </ng-multiselect-dropdown>
+
+                        <small id="emailHelp" class="form-text text-muted">Select Theatres</small>
+                        <ng-multiselect-dropdown [(ngModel)]="selectedItems2" [settings]="dropdownSettings"
+                            [data]="dataTheatre" (onSelect)="onItemSelect2()" (onDeSelect)="onItemSelect2()"
+                            (onSelectAll)="onItemSelect2()" name="selectedItems2">
+                        </ng-multiselect-dropdown>
+
+                        <small id="emailHelp" class="form-text text-muted">Select Theatres</small>
+                        <ng-multiselect-dropdown [(ngModel)]="selectedItems3" [settings]="dropdownSettings"
+                            [data]="timingsData" name="selectedItems3">
+                        </ng-multiselect-dropdown>
+
+                        <input type="file" id="img" name="img" accept="image/*">
+
+                        <button type="submit" (click)="addMovie()"
+                            class="main-left-margin bottomMargin2 btn btn-success">Add</button>
+                    </div>
+                </form>
+            </th>
+            <th scope="col-xs-12 col-sm-12 movetoTop">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Delete Movie</label>
+                        <small id="emailHelp" class="form-text text-muted">Select Movie to Delete</small>
+                        <select class="form-control" id="sel1" [(ngModel)]="movieIdToDelete" name="movieIdToDelete">
+                            <option *ngFor="let movie of allMovies" [value]="movie.id">{{movie.name}}</option>
+                        </select>
+                    </div>
+                    <button type="submit" (click)="deleteMovie()"
+                        class="main-left-margin bottomMargin2 btn btn-danger">Delete</button>
+                </form>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<div class="row container-fluid">
+    <div *ngFor="let movie of allMovies" class="col-sm-12 col-md-6 col-lg-4 row justify-content-center bottomMargin">
+
+        <div class="card" style="width: 18rem;">
+            <img src={{movie.imagePath}} class="card-img-top">
+            <div class="card-body">
+              <p class="card-text">{{movie.name}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.bg-Bfvds{background-color:#151718!important}
+
+.navbar-Whiteeeee .navbar-brand {
+    color: rgba(231, 231, 231, 0.9);
+  }
+
+  .nav-link2 {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .color-me-whitesmoke{
+    color:whitesmoke;
+  }
+
+  .to-rightAlign{
+      text-align: right;
+  }
+
+  .content-to-right{
+      align-content: flex-end;
+  }
+
+  .min-height{
+      height: 100px;
+  }
+
+  .bottomMargin2{
+    margin-bottom: 10px;
+  }
+
+  .main-left-margin{
+      margin-left: 100px;
+  }
+
+  .main-right-margin{
+    margin-right: 100px;
+}
+
+.button-container-span {
+  float:right;
+}
+.button-container-span2 {
+  float:center;
+}
+
+.textHiegth{
+  text-emphasis: size after 11px;;
+}

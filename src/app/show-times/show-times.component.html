@@ -1,0 +1,303 @@
+<nav class="min-height navbar bg-Bfvds navbar-light bg-light justify-content-between bottomMargin2">
+    <a class="navbar-brand color-me-whitesmoke">FILMISTAN admin portal</a>
+    <div>
+        <button (click)="logoutOfApp();" class=" bg-Bfvds nav-item color-me-whitesmoke" type="button"
+            value="button text">Logout</button>
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Select City</label>
+                        <select class="form-control col-sm-4" (change)="fillTheatresInCities()" id="sel1"
+                            [(ngModel)]="cityId" name="cityId">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the city</small>
+
+                        <select class="form-control col-sm-4" id="sel2" [(ngModel)]="theatreId" name="theatreId">
+                            <option *ngFor="let theatre of theatresInCityArray" [value]="theatre.id">{{theatre.name}}
+                            </option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the theatre</small>
+
+                        <table class = "col-sm-4">
+                            <tr class = "col-sm-4">
+                            <select class="form-control" id="sel2" [(ngModel)]="hour" name="hour">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                            </select>
+                            <small id="emailHelp" class="form-text text-muted">Select Hour</small>
+
+                            <select class="form-control" id="sel2" [(ngModel)]="minute" name="minute">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                            </select>
+                            <small id="emailHelp" class="form-text text-muted">Select Minute</small>
+                        </tr>
+                        </table>
+                    </div>
+                    <button type="submit" (click)="addshowTimes()"
+                        class="main-left-margin bottomMargin2 btn btn-success">Add</button>
+                </form>
+            </th>
+
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Select City</label>
+                        <select class="form-control col-sm-4" (change)="fillEditTheatresInCity()" id="sel3"
+                            [(ngModel)]="editCityId" name="editCityId">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the city</small>
+
+                        <select (change) = "fillEditShowTimesInCities()"  class="form-control col-sm-4" id="sel4" [(ngModel)]="editTheatreId" name="editTheatreId">
+                            <option *ngFor="let theatre of editTheatreArray" [value]="theatre.id">{{theatre.name}}
+                            </option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the theatre</small>
+
+                        <select class="form-control col-sm-4" id="sel2" [(ngModel)]="editShowTimeId" name="editShowTimeId">
+                            <option *ngFor="let showTime of editShowTimeArray" [value]="showTime.id">{{showTime.time}}
+                            </option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the showTimes</small>
+                        
+                        <table class = "col-sm-4">
+                            <tr class = "col-sm-4">
+                            <select class="form-control" id="sel2" [(ngModel)]="editHour" name="editHour">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                            </select>
+                            <small id="emailHelp" class="form-text text-muted">Select Hour</small>
+
+                            <select class="form-control" id="sel2" [(ngModel)]="editMinute" name="editMinute">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                            </select>
+                            <small id="emailHelp" class="form-text text-muted">Select Minute</small>
+                        </tr>
+                        </table>
+                        
+                    </div>
+                    <button type="submit" (click)="editShowTime()"
+                        class="main-left-margin bottomMargin2 btn btn-info">Edit</button>
+                </form>
+            </th>
+
+            <th scope="col-xs-12 col-sm-12">
+                <form>
+                    <div class="form-group main-left-margin">
+                        <label for="exampleInputEmail1">Select City</label>
+                        <select class="form-control col-sm-4" (change)="fillTheatresInCities2()" id="sel3"
+                            [(ngModel)]="cityId2" name="cityId2">
+                            <option *ngFor="let city of citiesArray" [value]="city.id">{{city.name}}</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the city</small>
+
+                        <select (change) = "getTimingsInTheatre()"  class="form-control col-sm-4" id="sel4" [(ngModel)]="theatreId2" name="theatreId2">
+                            <option *ngFor="let theatre of theatresInCityArray" [value]="theatre.id">{{theatre.name}}
+                            </option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the theatre</small>
+
+                        <select class="form-control col-sm-4" id="sel2" [(ngModel)]="showTimeId" name="showTimeId">
+                            <option *ngFor="let showTime of showtimesInTheaterArray" [value]="showTime.id">{{showTime.time}}
+                            </option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Select the showTimes</small>
+
+                        
+                    </div>
+                    <button type="submit" (click)="deleteTiming()"
+                        class="main-left-margin bottomMargin2 btn btn-danger">Delete</button>
+                </form>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<h3 class = "main-left-margin bottomMargin2">Show Times</h3>
+
+<table class=" container-fluid main-left-margin table col-md-10">
+    <thead class = "thead-light">
+        <tr>
+            <th scope="col">Timing</th>
+            <th scope="col">City</th>
+            <th scope="col">Theatre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let showTime of showtimesArray">
+            <th scope="row">{{showTime.time}}</th>
+            <td>{{showTime.city}}</td>
+            <td>{{showTime.theatre}}</td>
+        </tr>
+
+    </tbody>
+</table>
